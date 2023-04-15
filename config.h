@@ -18,10 +18,27 @@ static const char col_gray2[]       = "#3c3836";
 static const char col_gray3[]       = "#504945";
 static const char col_gray4[]       = "#1d2021";
 static const char col_cyan[]        = "#fabd2f";
+static const char gruv_fg4[]        = "#a89984";
+static const char gruv_fg3[]        = "#bdae93";
+static const char gruv_fg2[]        = "#d5c4a1";
+static const char gruv_fg1[]        = "#ebdbb2";
+static const char gruv_fg0[]        = "#fbf1c7";
+static const char gruv_red[]        = "#fb4934";
+static const char gruv_green[]      = "#b8bb26";
+static const char gruv_yellow[]     = "#fabd2f";
+static const char gruv_blue[]       = "#83a598";
+static const char gruv_purple[]     = "#d3869b";
+static const char gruv_aqua[]       = "#8ec07c";
+
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
+	[SchemeNorm] = { gruv_fg4, col_gray1, col_gray2 },
 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeStatus]  = { gruv_fg0, col_gray2,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
+	[SchemeTagsSel]  = { col_gray4, col_cyan,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
+	[SchemeTagsNorm]  = { gruv_fg4, col_gray1,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
+	[SchemeInfoSel]  = { gruv_fg0, col_gray2,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
+	[SchemeInfoNorm]  = { gruv_fg4, col_gray1,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
 
 /* tagging */
@@ -64,7 +81,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", gruv_fg0, "-sb", gruv_green, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 
 static const Key keys[] = {
@@ -123,4 +140,3 @@ static const Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
-
