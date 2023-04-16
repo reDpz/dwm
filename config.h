@@ -11,7 +11,7 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;        /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "JetBrainsMono NFM:size=13" };
+static const char *fonts[]          = { "JetBrainsMono NFM:size=13", "fontawesome:size=13" };
 static const char dmenufont[]       = "JetBrainsMono NFM:size=13";
 static const char col_gray1[]       = "#282828";
 static const char col_gray2[]       = "#3c3836";
@@ -32,7 +32,7 @@ static const char gruv_aqua[]       = "#8ec07c";
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { gruv_fg4, col_gray1, col_gray2 },
+	[SchemeNorm] = { gruv_fg0, col_gray2,  col_gray1  },
 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
 	[SchemeStatus]  = { gruv_fg0, col_gray2,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
 	[SchemeTagsSel]  = { col_gray4, col_cyan,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
@@ -53,6 +53,8 @@ static const Rule rules[] = {
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 	{ "Tk",       NULL,       NULL,       0,            1,            0 },
+	{ "discord",  NULL,       NULL,       1<<2,            0,            1 },
+	{ "Spotify",  NULL,       NULL,       1<<3,            0,            1 },
 };
 
 /* layout(s) */
