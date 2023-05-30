@@ -10,4 +10,4 @@ What is in the image:
 * [Alacritty](https://github.com/alacritty/alacritty)
 
 
-Font for anyone wondering this [CaskaydiaCove NFM](https://www.nerdfonts.com/font-downloads)
+Font for anyone wondering is [CaskaydiaCove NFM](https://www.nerdfonts.com/font-downloads)
