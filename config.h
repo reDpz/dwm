@@ -1,8 +1,7 @@
 /* See LICENSE file for copyright and license details. */
-
 /* appearance */
 static const unsigned int borderpx = 2; /* border pixel of windows */
-static const unsigned int gappx = 3;    /* gaps between windows */
+static const unsigned int gappx = 7;    /* gaps between windows */
 static const unsigned int snap = 32;    /* snap pixel */
 static const unsigned int systraypinning =
     0; /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor
@@ -16,9 +15,9 @@ static const int systraypinningfailfirst =
 static const int showsystray = 1; /* 0 means no systray */
 static const int showbar = 1;     /* 0 means no bar */
 static const int topbar = 1;      /* 0 means bottom bar */
-static const char *fonts[] = {"CaskaydiaCove NFM:size=13",
+static const char *fonts[] = {"BlexMono Nerd Font Mono Medium:size=13",
                               "fontawesome:size=13"};
-static const char dmenufont[] = "CaskaydiaCove NFM:size=13";
+static const char dmenufont[] = "BlexMono Nerd Font Mono Medium:size=13";
 static const char col_gray1[] = "#282828";
 static const char col_gray2[] = "#3c3836";
 static const char col_gray3[] = "#504945";
@@ -73,13 +72,13 @@ static const Rule rules[] = {
     {"Firefox", NULL, NULL, 1 << 8, 0, -1},
     {"Tk", NULL, NULL, 0, 1, 0},
     {"discord", NULL, NULL, 1 << 2, 0, 1},
-    {"Spotify", NULL, NULL, 1 << 1, 0, 1},
+    {"Spotify", NULL, NULL, 1 << 1, 0, -1},
     {"Tk", NULL, NULL, 0, 1, 0},
     {"Lunar Client 1.8.9 (v2.5.5-2319)", NULL, NULL, 1 << 1, 0, 0},
 };
 
 /* layout(s) */
-static const float mfact = 0.55; /* factor of master area size [0.05..0.95] */
+static const float mfact = 0.54; /* factor of master area size [0.05..0.95] */
 static const int nmaster = 1;    /* number of clients in master area */
 static const int resizehints =
     1; /* 1 means respect size hints in tiled resizals */
@@ -114,7 +113,7 @@ static char dmenumon[2] =
 static const char *dmenucmd[] = {
     "dmenu_run", "-m",  dmenumon,   "-fn", dmenufont, "-nb", col_gray1, "-nf",
     gruv_fg0,    "-sb", gruv_green, "-sf", col_gray4, NULL};
-static const char *termcmd[] = {"alacritty", NULL};
+static const char *termcmd[] = {"kitty", NULL};
 
 static const Key keys[] = {
     /* modifier                     key        function        argument */
@@ -125,7 +124,7 @@ static const Key keys[] = {
     {MODKEY, XK_h, focusstack, {.i = -1}},
     {MODKEY, XK_i, incnmaster, {.i = +1}},
     {MODKEY, XK_f, incnmaster, {.i = -1}},
-    {MODKEY|ShiftMask, XK_f, togglefullscr,  {0} },
+    {MODKEY | ShiftMask, XK_f, togglefullscr, {0}},
     {MODKEY, XK_j, setmfact, {.f = -0.01}},
     {MODKEY, XK_k, setmfact, {.f = +0.01}},
     {MODKEY | ShiftMask, XK_Return, zoom, {0}},
@@ -147,6 +146,7 @@ static const Key keys[] = {
     {MODKEY, XK_minus, setgaps, {.i = -1}},
     {MODKEY, XK_equal, setgaps, {.i = +1}},
     {MODKEY | ShiftMask, XK_equal, setgaps, {.i = 0}},
+    {MODKEY, XK_p, quit},
     TAGKEYS(XK_1, 0) TAGKEYS(XK_2, 1) TAGKEYS(XK_3, 2) TAGKEYS(XK_4, 3)
         TAGKEYS(XK_5, 4) TAGKEYS(XK_6, 5) TAGKEYS(XK_7, 6) TAGKEYS(XK_8, 7)
             TAGKEYS(XK_9, 8){MODKEY | ShiftMask, XK_p, quit, {0}},
